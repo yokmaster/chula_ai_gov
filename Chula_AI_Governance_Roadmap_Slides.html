@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, initial-scale=1">
+<title>Chula.AI Governance Unit — Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Noto Sans Thai', sans-serif;
+    background: #0c1220;
+    color: #fff;
+  }
+
+  /* ====== PAGE 1: OVERVIEW ROADMAP ====== */
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* Slide 1 - Main Roadmap */
+  .slide-1 {
+    background: linear-gradient(160deg, #0c1220 0%, #111b30 50%, #0f2318 100%);
+  }
+
+  .slide-1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .slide-1::after {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,167,108,0.08) 0%, transparent 70%);
+  }
+
+  .header-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0B6E4F, #14A76C, #2E86AB, #A855F7, #F59E0B);
+  }
+
+  .logo-area {
+    position: absolute;
+    top: 40px; left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-box {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #14A76C, #0B6E4F);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800; color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 20px rgba(20,167,108,0.3);
+  }
+
+  .logo-text {
+    display: flex; flex-direction: column;
+  }
+
+  .logo-text .org {
+    font-size: 13px; font-weight: 700;
+    color: #14A76C;
+    letter-spacing: 2px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .logo-text .sub {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .nist-badge {
+    position: absolute;
+    top: 48px; right: 80px;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 18px;
+  }
+
+  .nist-badge .label {
+    font-size: 10px; color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .nist-badge .framework {
+    font-size: 14px; color: #14A76C;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .nist-func {
+    display: inline-block;
+    font-size: 10px; padding: 3px 10px;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+
+  .main-title-area {
+    position: absolute;
+    top: 120px; left: 80px; right: 80px;
+  }
+
+  .main-title {
+    font-size: 48px; font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .main-title .highlight {
+    background: linear-gradient(90deg, #14A76C, #2E86AB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .main-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  /* Roadmap Timeline */
+  .roadmap-container {
+    position: absolute;
+    top: 300px; left: 80px; right: 80px;
+    bottom: 60px;
+    display: flex;
+    gap: 24px;
+  }
+
+  .phase-card {
+    flex: 1;
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+  }
+
+  .phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .phase-card.p1 {
+    background: linear-gradient(180deg, rgba(11,110,79,0.15) 0%, rgba(11,110,79,0.05) 100%);
+    border: 1px solid rgba(20,167,108,0.25);
+  }
+  .phase-card.p1::before { background: linear-gradient(90deg, #0B6E4F, #14A76C); }
+
+  .phase-card.p2 {
+    background: linear-gradient(180deg, rgba(27,73,101,0.15) 0%, rgba(27,73,101,0.05) 100%);
+    border: 1px solid rgba(46,134,171,0.25);
+  }
+  .phase-card.p2::before { background: linear-gradient(90deg, #1B4965, #2E86AB); }
+
+  .phase-card.p3 {
+    background: linear-gradient(180deg, rgba(107,45,91,0.15) 0%, rgba(107,45,91,0.05) 100%);
+    border: 1px solid rgba(168,85,247,0.25);
+  }
+  .phase-card.p3::before { background: linear-gradient(90deg, #6B2D5B, #A855F7); }
+
+  .phase-card.p4 {
+    background: linear-gradient(180deg, rgba(180,83,9,0.15) 0%, rgba(180,83,9,0.05) 100%);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .phase-card.p4::before { background: linear-gradient(90deg, #B45309, #F59E0B); }
+
+  .phase-num {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .p1 .phase-num { color: #14A76C; }
+  .p2 .phase-num { color: #2E86AB; }
+  .p3 .phase-num { color: #A855F7; }
+  .p4 .phase-num { color: #F59E0B; }
+
+  .phase-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .phase-title {
+    font-size: 22px; font-weight: 800;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .phase-subtitle {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 16px;
+  }
+
+  .phase-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 0;
+  }
+
+  .phase-items {
+    list-style: none;
+    flex-grow: 1;
+  }
+
+  .phase-items li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    padding: 5px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .phase-items li .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .p1 .dot { background: #14A76C; }
+  .p2 .dot { background: #2E86AB; }
+  .p3 .dot { background: #A855F7; }
+  .p4 .dot { background: #F59E0B; }
+
+  .phase-output {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .phase-output .out-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 8px;
+  }
+
+  .p1 .out-label { color: #14A76C; }
+  .p2 .out-label { color: #2E86AB; }
+  .p3 .out-label { color: #A855F7; }
+  .p4 .out-label { color: #F59E0B; }
+
+  .phase-output .out-item {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    padding: 2px 0;
+  }
+
+  /* Arrow connectors */
+  .arrow-connector {
+    position: absolute;
+    top: 420px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .period-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .p1 .period-badge { background: rgba(20,167,108,0.15); color: #14A76C; }
+  .p2 .period-badge { background: rgba(46,134,171,0.15); color: #2E86AB; }
+  .p3 .period-badge { background: rgba(168,85,247,0.15); color: #A855F7; }
+  .p4 .period-badge { background: rgba(245,158,11,0.15); color: #F59E0B; }
+
+
+  /* ====== PAGE 2: PHASE 1 DETAIL ====== */
+  .slide-2 {
+    background: linear-gradient(160deg, #0c1220 0%, #0a1a12 100%);
+  }
+
+  .slide-2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .detail-header {
+    position: absolute;
+    top: 40px; left: 80px; right: 80px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+
+  .detail-phase-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .detail-phase-tag .tag {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 6px;
+  }
+
+  .detail-title {
+    font-size: 36px; font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .detail-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    max-width: 700px;
+    line-height: 1.6;
+  }
+
+  /* Sector cards */
+  .sectors-grid {
+    position: absolute;
+    top: 200px; left: 80px; right: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .sector-card {
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sector-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .sector-card.healthcare {
+    background: linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.02) 100%);
+    border: 1px solid rgba(16,185,129,0.2);
+  }
+  .sector-card.healthcare::before {
+    background: linear-gradient(90deg, #059669, #10b981);
+  }
+
+  .sector-card.education {
+    background: linear-gradient(180deg, rgba(99,102,241,0.08) 0%, rgba(99,102,241,0.02) 100%);
+    border: 1px solid rgba(99,102,241,0.2);
+  }
+  .sector-card.education::before {
+    background: linear-gradient(90deg, #4f46e5, #818cf8);
+  }
+
+  .sector-icon { font-size: 32px; margin-bottom: 8px; }
+
+  .sector-name {
+    font-size: 20px; font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .sector-name-en {
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+
+  .system-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+
+  .system-box:last-child { margin-bottom: 0; }
+
+  .system-num {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .healthcare .system-num { color: #10b981; }
+  .education .system-num { color: #818cf8; }
+
+  .system-name-th {
+    font-size: 15px; font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .system-name-en {
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+  }
+
+  .risk-tags {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+
+  .risk-tag {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+
+  .healthcare .risk-tag {
+    background: rgba(16,185,129,0.12);
+    color: #34d399;
+  }
+
+  .education .risk-tag {
+    background: rgba(99,102,241,0.12);
+    color: #a5b4fc;
+  }
+
+  /* Risk dimensions bar */
+  .risk-bar {
+    position: absolute;
+    bottom: 60px; left: 80px; right: 80px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px 32px;
+  }
+
+  .risk-bar-title {
+    font-size: 12px; font-weight: 700;
+    color: #14A76C;
+    letter-spacing: 1px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .risk-dims {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .risk-dim {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    flex: 1;
+  }
+
+  .risk-dim .r-icon { font-size: 20px; }
+
+  .risk-dim .r-name-th {
+    font-size: 12px; font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .risk-dim .r-name-en {
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Access options */
+  .access-section {
+    position: absolute;
+    top: 630px; left: 80px; right: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .access-card {
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+  }
+
+  .access-card.deep {
+    background: linear-gradient(135deg, rgba(20,167,108,0.06), rgba(20,167,108,0.02));
+    border: 1px solid rgba(20,167,108,0.2);
+  }
+
+  .access-card.frontend {
+    background: linear-gradient(135deg, rgba(46,134,171,0.06), rgba(46,134,171,0.02));
+    border: 1px solid rgba(46,134,171,0.2);
+  }
+
+  .access-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px;
+    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .deep .access-label { color: #14A76C; }
+  .frontend .access-label { color: #2E86AB; }
+
+  .access-title {
+    font-size: 18px; font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .access-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  .access-items {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .access-items li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    padding: 3px 0;
+    display: flex; gap: 8px; align-items: center;
+  }
+
+  .access-items li .check {
+    font-size: 10px; font-weight: 700;
+  }
+
+  .deep .check { color: #14A76C; }
+  .frontend .check { color: #2E86AB; }
+
+  .or-divider {
+    position: absolute;
+    top: 720px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a2744;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+    z-index: 2;
+  }
+
+  /* Page indicator */
+  .page-indicator {
+    position: absolute;
+    bottom: 24px; right: 80px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .divider-line {
+    width: 100%; height: 8px;
+    background: #0c1220;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SLIDE 1: OVERVIEW ROADMAP ============ -->
+<div class="slide slide-1">
+  <div class="header-bar"></div>
+
+  <div class="logo-area">
+    <div class="logo-box">AI</div>
+    <div class="logo-text">
+      <div class="org">Chula.AI Governance Unit</div>
+      <div class="sub">คณะนิติศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</div>
+    </div>
+  </div>
+
+  <div class="nist-badge">
+    <span class="label">Framework</span>
+    <span class="framework">NIST AI RMF</span>
+    <span class="nist-func" style="background:rgba(11,110,79,0.3); color:#14A76C">GOVERN</span>
+    <span class="nist-func" style="background:rgba(27,73,101,0.3); color:#2E86AB">MAP</span>
+    <span class="nist-func" style="background:rgba(107,45,91,0.3); color:#A855F7">MEASURE</span>
+    <span class="nist-func" style="background:rgba(180,83,9,0.3); color:#F59E0B">MANAGE</span>
+  </div>
+
+  <div class="main-title-area">
+    <h1 class="main-title">แผนงานระยะยาว <span class="highlight">AI Governance Unit</span></h1>
+    <p class="main-subtitle">จาก Case Study → สร้างระบบ & องค์ความรู้ → ร่าง Guidelines → ศูนย์ประเมินพร้อมให้บริการ</p>
+  </div>
+
+  <div class="roadmap-container">
+    <!-- Phase 1 -->
+    <div class="phase-card p1">
+      <div class="phase-num">ระยะที่ 1</div>
+      <span class="period-badge">ปัจจุบัน</span>
+      <div class="phase-icon">🔍</div>
+      <div class="phase-title">ลงพื้นที่ประเมิน</div>
+      <div class="phase-subtitle">Field Assessment & Case Studies</div>
+      <div class="phase-desc">ประเมินธรรมาภิบาลระบบ AI จริงในคณะแพทยศาสตร์ 2 ภาคส่วน 4 ระบบ</div>
+      <ul class="phase-items">
+        <li><span class="dot"></span>สัมภาษณ์ผู้มีส่วนได้เสีย</li>
+        <li><span class="dot"></span>ทดสอบระบบ (Deep / Frontend Access)</li>
+        <li><span class="dot"></span>ประเมินความเสี่ยง 7 มิติ ตาม NIST</li>
+        <li><span class="dot"></span>จัดทำ Risk Register รายระบบ</li>
+      </ul>
+      <div class="phase-output">
+        <div class="out-label">Outputs</div>
+        <div class="out-item">→ รายงานประเมินรายระบบ 4 ฉบับ</div>
+        <div class="out-item">→ Risk Register + Gap Analysis</div>
+        <div class="out-item">→ บทเรียนจากการปฏิบัติจริง</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-card p2">
+      <div class="phase-num">ระยะที่ 2</div>
+      <span class="period-badge">หลังประเมินเสร็จ</span>
+      <div class="phase-icon">⚙️</div>
+      <div class="phase-title">สร้างระบบ & องค์ความรู้</div>
+      <div class="phase-subtitle">System & Know-how Development</div>
+      <div class="phase-desc">นำผลจาก Case Study มาพัฒนาเครื่องมือ กระบวนการ และองค์ความรู้ที่เป็นระบบ</div>
+      <ul class="phase-items">
+        <li><span class="dot"></span>Checklist + แบบสัมภาษณ์มาตรฐาน</li>
+        <li><span class="dot"></span>กระบวนการประเมินมาตรฐาน (SOP)</li>
+        <li><span class="dot"></span>ฐานข้อมูลความเสี่ยง AI แยกตามโดเมน</li>
+        <li><span class="dot"></span>คลังข้อทดสอบ (Test Cases)</li>
+      </ul>
+      <div class="phase-output">
+        <div class="out-label">Outputs</div>
+        <div class="out-item">→ Assessment Toolkit v1.0</div>
+        <div class="out-item">→ Standard Operating Procedures</div>
+        <div class="out-item">→ AI Risk Knowledge Base</div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-card p3">
+      <div class="phase-num">ระยะที่ 3</div>
+      <span class="period-badge">ต่อยอดจากระยะที่ 2</span>
+      <div class="phase-icon">📋</div>
+      <div class="phase-title">ร่าง Guidelines จุฬาฯ</div>
+      <div class="phase-subtitle">Chula AI Governance Guidelines</div>
+      <div class="phase-desc">จัดทำมาตรฐาน AI Governance สำหรับจุฬาฯ อิงจากประสบการณ์จริง + มาตรฐานสากล</div>
+      <ul class="phase-items">
+        <li><span class="dot"></span>หลักธรรมาภิบาล AI 7 ประการ</li>
+        <li><span class="dot"></span>เกณฑ์จำแนกระดับความเสี่ยง</li>
+        <li><span class="dot"></span>ข้อกำหนดตามระดับ (องค์กร + เทคนิค)</li>
+        <li><span class="dot"></span>แนวปฏิบัติเฉพาะภาคส่วน</li>
+      </ul>
+      <div class="phase-output">
+        <div class="out-label">Outputs</div>
+        <div class="out-item">→ Chula AI Governance Guidelines v1.0</div>
+        <div class="out-item">→ Sector-specific Guidance</div>
+        <div class="out-item">→ Self-Assessment Tool</div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="phase-card p4">
+      <div class="phase-num">ระยะที่ 4</div>
+      <span class="period-badge">เป้าหมายระยะยาว</span>
+      <div class="phase-icon">🚀</div>
+      <div class="phase-title">ศูนย์พร้อมให้บริการ</div>
+      <div class="phase-subtitle">Operational AI Governance Unit</div>
+      <div class="phase-desc">หน่วยงานกลางประเมิน ให้คำปรึกษา รับรองระบบ AI ทั่วมหาวิทยาลัย</div>
+      <ul class="phase-items">
+        <li><span class="dot"></span>Pre-deployment Assessment</li>
+        <li><span class="dot"></span>Ongoing Monitoring Advisory</li>
+        <li><span class="dot"></span>Incident Response Support</li>
+        <li><span class="dot"></span>Training & Capacity Building</li>
+      </ul>
+      <div class="phase-output">
+        <div class="out-label">Outputs</div>
+        <div class="out-item">→ หน่วยประเมินและรับรอง AI</div>
+        <div class="out-item">→ เครือข่าย AI Governance จุฬาฯ</div>
+        <div class="out-item">→ ต้นแบบระดับประเทศ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-indicator">1 / 2</div>
+</div>
+
+<div class="divider-line"></div>
+
+<!-- ============ SLIDE 2: PHASE 1 DETAIL ============ -->
+<div class="slide slide-2">
+  <div class="header-bar" style="background: linear-gradient(90deg, #0B6E4F, #14A76C, #10b981);"></div>
+
+  <div class="detail-header">
+    <div>
+      <div class="detail-phase-tag">
+        <span class="tag" style="background:rgba(20,167,108,0.15); color:#14A76C;">ระยะที่ 1 — ปัจจุบัน</span>
+      </div>
+      <h1 class="detail-title">ลงพื้นที่ประเมิน — คณะแพทยศาสตร์ จุฬาฯ</h1>
+      <p class="detail-subtitle">ประเมินธรรมาภิบาลระบบ AI 4 ระบบ ใน 2 ภาคส่วน ภายใต้กรอบ NIST AI RMF ครอบคลุมความเสี่ยง 7 มิติ</p>
+    </div>
+    <div class="logo-area" style="position:static;">
+      <div class="logo-box">AI</div>
+      <div class="logo-text">
+        <div class="org">Chula.AI Governance Unit</div>
+        <div class="sub">คณะนิติศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two Sectors -->
+  <div class="sectors-grid">
+    <!-- Healthcare -->
+    <div class="sector-card healthcare">
+      <div class="sector-icon">🏥</div>
+      <div class="sector-name">ด้านการดูแลผู้ป่วย</div>
+      <div class="sector-name-en">Healthcare Sector — Clinical AI Systems</div>
+
+      <div class="system-box">
+        <div class="system-num">ระบบที่ 1</div>
+        <div class="system-name-th">ระบบสนับสนุนการตัดสินใจทางคลินิก</div>
+        <div class="system-name-en">Clinical Decision Support System</div>
+        <div class="risk-tags">
+          <span class="risk-tag">Hallucination</span>
+          <span class="risk-tag">Bias</span>
+          <span class="risk-tag">Safety</span>
+          <span class="risk-tag">Transparency</span>
+        </div>
+      </div>
+
+      <div class="system-box">
+        <div class="system-num">ระบบที่ 2</div>
+        <div class="system-name-th">ระบบวินิจฉัยและวิเคราะห์โรค</div>
+        <div class="system-name-en">Diagnostic AI System</div>
+        <div class="risk-tags">
+          <span class="risk-tag">Reliability</span>
+          <span class="risk-tag">Fairness</span>
+          <span class="risk-tag">Transparency</span>
+          <span class="risk-tag">Accountability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="sector-card education">
+      <div class="sector-icon">🎓</div>
+      <div class="sector-name">ด้านการศึกษาทางการแพทย์</div>
+      <div class="sector-name-en">Education Sector — Medical Education AI Systems</div>
+
+      <div class="system-box">
+        <div class="system-num">ระบบที่ 3</div>
+        <div class="system-name-th">ระบบฝึกซักประวัติผู้ป่วย</div>
+        <div class="system-name-en">Patient History-Taking Training</div>
+        <div class="risk-tags">
+          <span class="risk-tag">Hallucination</span>
+          <span class="risk-tag">Privacy</span>
+          <span class="risk-tag">Accountability</span>
+          <span class="risk-tag">Reliability</span>
+        </div>
+      </div>
+
+      <div class="system-box">
+        <div class="system-num">ระบบที่ 4</div>
+        <div class="system-name-th">ระบบสนับสนุนการเรียนรู้ทางคลินิก</div>
+        <div class="system-name-en">Clinical Learning Support — Preclinic + Clinic</div>
+        <div class="risk-tags">
+          <span class="risk-tag">Bias</span>
+          <span class="risk-tag">Reliability</span>
+          <span class="risk-tag">Transparency</span>
+          <span class="risk-tag">Safety</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access Options -->
+  <div class="access-section">
+    <div class="access-card deep">
+      <div class="access-label">ทางเลือก ก</div>
+      <div class="access-title">Deep Access — เข้าถึงระดับลึก</div>
+      <div class="access-desc">เข้าถึง Source Code, ข้อมูลดิบ (Anonymized), ระบบ Backend, Model Architecture</div>
+      <ul class="access-items">
+        <li><span class="check">✓</span> ประเมินได้ครอบคลุมทุกมิติ</li>
+        <li><span class="check">✓</span> ทดสอบเชิงเทคนิคได้อย่างละเอียด</li>
+        <li><span class="check">✓</span> ตรวจสอบ Algorithm โดยตรง</li>
+      </ul>
+    </div>
+
+    <div class="access-card frontend">
+      <div class="access-label">ทางเลือก ข</div>
+      <div class="access-title">Frontend Access — เข้าถึงผ่านหน้าบ้าน</div>
+      <div class="access-desc">เปิด User Account ให้ทีมประเมินเข้าใช้งานระบบเสมือนผู้ใช้จริง</div>
+      <ul class="access-items">
+        <li><span class="check">✓</span> ไม่กระทบระบบหลังบ้าน</li>
+        <li><span class="check">✓</span> ทดสอบ Hallucination, Bias ได้</li>
+        <li><span class="check">✓</span> ดำเนินการได้รวดเร็ว</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="or-divider">OR</div>
+
+  <!-- Risk dimensions bar -->
+  <div class="risk-bar">
+    <div class="risk-bar-title">ครอบคลุมความเสี่ยง 7 มิติ ตาม NIST AI RMF — ไม่ใช่แค่ PDPA</div>
+    <div class="risk-dims">
+      <div class="risk-dim"><span class="r-icon">🛡️</span><div><div class="r-name-th">ความมั่นคงปลอดภัย</div><div class="r-name-en">Security</div></div></div>
+      <div class="risk-dim"><span class="r-icon">✅</span><div><div class="r-name-th">ความน่าเชื่อถือ</div><div class="r-name-en">Reliability</div></div></div>
+      <div class="risk-dim"><span class="r-icon">👁️</span><div><div class="r-name-th">ภาพหลอน</div><div class="r-name-en">Hallucination</div></div></div>
+      <div class="risk-dim"><span class="r-icon">⚖️</span><div><div class="r-name-th">อคติ/ความเป็นธรรม</div><div class="r-name-en">Bias & Fairness</div></div></div>
+      <div class="risk-dim"><span class="r-icon">🔒</span><div><div class="r-name-th">ความเป็นส่วนตัว</div><div class="r-name-en">Privacy</div></div></div>
+      <div class="risk-dim"><span class="r-icon">🔍</span><div><div class="r-name-th">ความโปร่งใส</div><div class="r-name-en">Transparency</div></div></div>
+      <div class="risk-dim"><span class="r-icon">📝</span><div><div class="r-name-th">ความรับผิดชอบ</div><div class="r-name-en">Accountability</div></div></div>
+    </div>
+  </div>
+
+  <div class="page-indicator">2 / 2</div>
+</div>
+
+</body>
+</html>
